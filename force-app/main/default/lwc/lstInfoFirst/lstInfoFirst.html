@@ -1,0 +1,11 @@
+
+<template>
+    <lightning-card title="Info First" icon-name="standard:contact">
+        <div class="slds-p-horizontal_small">
+            <lightning-input type="text" label="Message" onchange={handleChange} value={info}></lightning-input>
+            <div class="slds-p-around_medium lgc-bg" style="text-align: end;">
+                <lightning-button label="Fire Event" variant="brand" onclick={handleClick}></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>
