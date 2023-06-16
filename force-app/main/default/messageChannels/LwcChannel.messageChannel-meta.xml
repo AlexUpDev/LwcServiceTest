@@ -3,7 +3,7 @@
     <description>This is a Lightning Message Service Channel.</description>
     <isExposed>true</isExposed>
     <lightningMessageFields>
-        <fieldName>message</fieldName>
+        <fieldName>engine</fieldName>
     </lightningMessageFields>
     <lightningMessageFields>
         <fieldName>battery</fieldName>

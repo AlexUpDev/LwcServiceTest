@@ -4,12 +4,12 @@ import { subscribe, MessageContext } from 'lightning/messageService';
 
 export default class LstSummary extends LightningElement {
     battery = 'off';
+    engine = 'off';
     @wire(MessageContext)
     messageContext;
 
     connectedCallback() {
         this.handleSubscribe();
-        console.log('B: ' + this.battery);
     }
 
     handleSubscribe() {
@@ -17,7 +17,16 @@ export default class LstSummary extends LightningElement {
             return;
         }
         this.subscription = subscribe(this.messageContext, LwcChannel, (message) => {
-            this.battery = message.battery;
+            if (message.battery) {
+                this.battery = message.battery;
+            }
+            if (message.engine) {
+                this.engine = this.batteryOn ? message.engine : 'off';
+            }
         });
+    }
+
+    get batteryOn() {
+        return this.battery === 'on';
     }
 }
